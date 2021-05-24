@@ -113,7 +113,7 @@ class LASDataset(PointCloudDataset):
         self.train_path = join(self.config.path, 'train')
         self.test_path = join(self.config.path, 'validation')
         # self.test_path = join(self.config.path, 'test')
-        self.test_path = join(self.config.path, 'predict')
+        # self.test_path = join(self.config.path, 'predict')
 
         # Proportion of validation scenes
         self.train_files = np.sort([join(self.train_path, f) for f in listdir(self.train_path) if f[-4:] == '.laz'])
