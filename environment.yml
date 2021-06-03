@@ -14,5 +14,11 @@ dependencies:
   - pyqt=5
   - cudnn=7.6
   - matplotlib
-  - python-pdal
+  - python-pdal=2.3.7
+  - pdal
   - tensorboard
+  - pip
+  - pip:
+    - hydra-core
+    - hydra-joblib-launcher
+    - omegaconf
