@@ -103,3 +103,8 @@ saving_path: None
 # Dataset folder
 path: /home/chambbj/data/ml-datasets/US3D/oma-only
 writer: /home/chambbj/data/tensorboard-runs/new/hydra
+
+# Prediction param
+chosen_log: /home/chambbj/code/kpconv-pytorch-pdal/results/Log_2021-05-21_15-15-09
+prediction_validation_size: 200
+prediction_input_threads: 10
