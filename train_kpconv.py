@@ -152,6 +152,8 @@ class LASConfig(Config):
     """
 
     def __init__(self, cfg):
+        super(LASConfig, self).__init__()
+
         # Number of CPU threads for the input pipeline
         self.input_threads = cfg.input_threads
 
@@ -269,27 +271,27 @@ class LASConfig(Config):
 
     # Define layers
     architecture = ['simple',
-                    'resnetb',
-                    'resnetb_strided',
-                    'resnetb',
-                    'resnetb',
-                    'resnetb_strided',
-                    'resnetb_deformable',
-                    'resnetb_deformable',
-                    'resnetb_deformable_strided',
-                    'resnetb_deformable',
-                    'resnetb_deformable',
-                    'resnetb_deformable_strided',
-                    'resnetb_deformable',
-                    'resnetb_deformable',
-                    'nearest_upsample',
-                    'unary',
-                    'nearest_upsample',
-                    'unary',
-                    'nearest_upsample',
-                    'unary',
-                    'nearest_upsample',
-                    'unary']
+                            'resnetb',
+                            'resnetb_strided',
+                            'resnetb',
+                            'resnetb',
+                            'resnetb_strided',
+                            'resnetb_deformable',
+                            'resnetb_deformable',
+                            'resnetb_deformable_strided',
+                            'resnetb_deformable',
+                            'resnetb_deformable',
+                            'resnetb_deformable_strided',
+                            'resnetb_deformable',
+                            'resnetb_deformable',
+                            'nearest_upsample',
+                            'unary',
+                            'nearest_upsample',
+                            'unary',
+                            'nearest_upsample',
+                            'unary',
+                            'nearest_upsample',
+                            'unary']
 
 
 if __name__ == "__main__":

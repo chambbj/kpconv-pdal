@@ -217,7 +217,6 @@ class PointCloudDataset(Dataset):
         self.label_names = []
         self.label_to_idx = {}
         self.name_to_label = {}
-        self.config = Config()
         self.neighborhood_limits = []
 
         return

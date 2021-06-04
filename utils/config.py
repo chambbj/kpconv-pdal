@@ -192,6 +192,14 @@ class Config:
     path = '/path/to/data/root'
     writer = SummaryWriter('runs/foo')
 
+    ignored_labels = [1,3,4,7,8,10,11,12,13,14,15,16,18]
+    test_path_suffix = 'validation'
+
+    # Prediction param
+    chosen_log = '/path/to/results/log'
+    prediction_validation_size = 200
+    prediction_input_threads = 10
+
     def __init__(self):
         """
         Class Initialyser

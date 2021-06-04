@@ -185,7 +185,7 @@ class LASConfig(Config):
     saving_path = None
 
     # Dataset folder
-    path = '/home/chambbj/data/ml-datasets/US3D/oma-only'
+    path = '/home/chambbj/data/ml-datasets/US3D/train-single-file-prototype-kpconv/'
     writer = SummaryWriter('/home/chambbj/data/tensorboard-runs/new/demo')
 
 
