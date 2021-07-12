@@ -562,12 +562,16 @@ class ModelTrainer:
 
         # Sum all confusions
         C = np.sum(Confs, axis=0).astype(np.float32)
-
+        print("calculate metrics")
+        print(C.shape)
+        print(val_loader.dataset.label_values)
+        print(val_loader.dataset.ignored_labels)
         # Remove ignored labels from confusions
         for l_ind, label_value in reversed(list(enumerate(val_loader.dataset.label_values))):
             if label_value in val_loader.dataset.ignored_labels:
                 C = np.delete(C, l_ind, axis=0)
                 C = np.delete(C, l_ind, axis=1)
+        print(C.shape)
 
         # Balance with real validation proportions
         C *= np.expand_dims(self.val_proportions / (np.sum(C, axis=1) + 1e-6), 1)

@@ -31,10 +31,10 @@ def read_raw_las(filename):
     p = pdal.Pipeline(json.dumps([
         # filename
         filename,
-        {
-            "type":"filters.range",
-            "limits":"Classification(:17]"
-        },
+        # {
+        #     "type":"filters.range",
+        #     "limits":"Classification(:19]"
+        # },
         # {
         #     "type":"filters.assign",
         #     "assignment":"Classification[1:1]=0"
@@ -82,10 +82,10 @@ def read_subsampled_las(filename, dl):
     p = pdal.Pipeline(json.dumps([
         # filename
         filename,
-        {
-            "type":"filters.range",
-            "limits":"Classification(:17]"
-        },
+        # {
+        #     "type":"filters.range",
+        #     "limits":"Classification(:19]"
+        # },
         # {
         #     "type":"filters.assign",
         #     "assignment":"Classification[1:1]=0"

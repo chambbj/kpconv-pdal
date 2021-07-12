@@ -117,8 +117,9 @@ def my_app(cfg: DictConfig) -> None:
 
     # Define network model
     t1 = time.time()
-    label_value_ids = np.array([training_dataset.label_to_idx[l] for l in training_dataset.label_values])
-    net = KPFCNN(config, label_value_ids, training_dataset.ignored_labels)
+    # label_value_ids = np.array([training_dataset.label_to_idx[l] for l in training_dataset.label_values])
+    # net = KPFCNN(config, label_value_ids, training_dataset.ignored_labels)
+    net = KPFCNN(config, training_dataset.label_values, training_dataset.ignored_labels)
 
     debug = False
     if debug:
@@ -251,6 +252,8 @@ class LASConfig(Config):
         # Dataset folder
         self.path = cfg.path
         self.writer = SummaryWriter(cfg.writer)
+
+        self.ignored_labels = cfg.ignored_labels
 
     ####################
     # Dataset parameters

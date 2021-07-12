@@ -85,7 +85,22 @@ class LASDataset(PointCloudDataset):
                                15: 'transmission_tower',
                                16: 'wire_structure_connector',
                                17: 'bridge_deck',
-                               18: 'high_noise'}
+                               18: 'high_noise',
+                               19: 'overhead_structure',
+                               64: 'wire',
+                               65: 'car',
+                               66: 'truck',
+                               67: 'boat',
+                               68: 'barrier',
+                               69: 'railoroad_car',
+                               70: 'elevated_walkway',
+                               71: 'covered_walkway',
+                               72: 'dock_pier',
+                               73: 'fence',
+                               74: 'tower',
+                               75: 'crane',
+                               76: 'silo_storage',
+                               77: 'bridge_structure'}
 
         # List of classes ignored during training (can be empty)
         self.ignored_labels = np.array(config.ignored_labels)
@@ -98,6 +113,7 @@ class LASDataset(PointCloudDataset):
 
         # Update number of class and data task in configuration
         config.num_classes = self.num_classes - len(self.ignored_labels)
+        print(config.num_classes)
         config.dataset_task = self.dataset_task
 
         # Parameters from config
