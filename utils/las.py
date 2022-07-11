@@ -33,7 +33,7 @@ def read_raw_las(filename):
         filename,
         {
             "type":"filters.range",
-            "limits":"Classification(:17]"
+            "limits":"Classification(:26]"
         },
         # {
         #     "type":"filters.assign",
@@ -84,7 +84,7 @@ def read_subsampled_las(filename, dl):
         filename,
         {
             "type":"filters.range",
-            "limits":"Classification(:17]"
+            "limits":"Classification(:26]"
         },
         # {
         #     "type":"filters.assign",

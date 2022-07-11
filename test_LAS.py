@@ -94,7 +94,7 @@ if __name__ == '__main__':
     #       > 'last_XXX': Automatically retrieve the last trained model on dataset XXX
     #       > '(old_)results/Log_YYYY-MM-DD_HH-MM-SS': Directly provide the path of a trained model
 
-    chosen_log = 'results/Log_2021-05-21_15-15-09'  # => ModelNet40
+    chosen_log = 'results/Log_2022-07-08_15-24-10'  # => ModelNet40
 
     # Choose the index of the checkpoint to load OR None if you want to load the best checkpoint
     chkp_idx = None
@@ -160,6 +160,8 @@ if __name__ == '__main__':
     else:
         set = 'test'
 
+    print(set)
+
     # Initiate dataset
     if config.dataset == 'ModelNet40':
         test_dataset = ModelNet40Dataset(config, train=False)
@@ -174,7 +176,7 @@ if __name__ == '__main__':
         test_sampler = SemanticKittiSampler(test_dataset)
         collate_fn = SemanticKittiCollate
     elif config.dataset == 'LAS':
-        test_dataset = LASDataset(config, set='test', use_potentials=True)
+        test_dataset = LASDataset(config, set=set, use_potentials=True)
         test_sampler = LASSampler(test_dataset)
         collate_fn = LASCollate
     else:

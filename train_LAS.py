@@ -154,7 +154,7 @@ class LASConfig(Config):
     grad_clip_norm = 100.0
 
     # Number of batch
-    batch_num = 8
+    batch_num = 4
 
     # Number of steps per epochs
     epoch_steps = 500
@@ -185,8 +185,8 @@ class LASConfig(Config):
     saving_path = None
 
     # Dataset folder
-    path = '/home/chambbj/data/ml-datasets/US3D/oma-only'
-    writer = SummaryWriter('/home/chambbj/data/tensorboard-runs/new/demo')
+    path = '/home/chambbj/data/ahn4'
+    writer = SummaryWriter('/home/chambbj/data/tensorboard-runs/new/kpconv-ahn4-00')
 
 
 # ----------------------------------------------------------------------------------------------------------------------
