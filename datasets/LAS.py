@@ -112,7 +112,7 @@ class LASDataset(PointCloudDataset):
 
         # Path of the training files
         self.train_path = join(self.config.path, 'train')
-        self.test_path = join(self.config.path, 'validation')
+        self.test_path = join(self.config.path, 'test')
         # self.test_path = join(self.config.path, 'test')
         # self.test_path = join(self.config.path, 'predict')
 
