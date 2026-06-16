@@ -1,5 +1,7 @@
-from distutils.core import setup, Extension
-import numpy.distutils.misc_util
+import sys
+
+import numpy
+from setuptools import Extension, setup
 
 # Adding OpenCV to project
 # ************************
@@ -8,16 +10,22 @@ import numpy.distutils.misc_util
 # *****************************
 
 SOURCES = ["../cpp_utils/cloud/cloud.cpp",
-             "grid_subsampling/grid_subsampling.cpp",
-             "wrapper.cpp"]
+           "grid_subsampling/grid_subsampling.cpp",
+           "wrapper.cpp"]
 
-module = Extension(name="grid_subsampling",
-                    sources=SOURCES,
-                    extra_compile_args=['-std=c++11',
-                                        '-D_GLIBCXX_USE_CXX11_ABI=0'])
+if sys.platform == "win32":
+    extra_compile_args = ["/std:c++14"]
+else:
+    extra_compile_args = ["-std=c++11", "-D_GLIBCXX_USE_CXX11_ABI=0"]
 
+module = Extension(
+    name="grid_subsampling",
+    sources=SOURCES,
+    include_dirs=[numpy.get_include()],
+    extra_compile_args=extra_compile_args,
+)
 
-setup(ext_modules=[module], include_dirs=numpy.distutils.misc_util.get_numpy_include_dirs())
+setup(ext_modules=[module])
 
 
 
