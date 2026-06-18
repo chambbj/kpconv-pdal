@@ -88,7 +88,7 @@ class LASDataset(PointCloudDataset):
                                18: 'high_noise'}
 
         # List of classes ignored during training (can be empty)
-        self.ignored_labels = np.array([1,3,4,7,8,10,11,12,13,14,15,16,18])
+        self.ignored_labels = np.array([0,1,3,4,7,8,10,11,12,13,14,15,16,18])
 
         # Initialize a bunch of variables concerning class labels
         self.init_labels()
@@ -111,8 +111,8 @@ class LASDataset(PointCloudDataset):
 
         # Path of the training files
         self.train_path = join(self.config.path, 'train')
-        self.test_path = join(self.config.path, 'validation')
-        # self.test_path = join(self.config.path, 'test')
+        # self.test_path = join(self.config.path, 'validation')
+        self.test_path = join(self.config.path, 'test')
         # self.test_path = join(self.config.path, 'predict')
 
         # Proportion of validation scenes
@@ -849,8 +849,6 @@ class LASSampler(Sampler):
     """Sampler for LAS"""
 
     def __init__(self, dataset: LASDataset):
-        Sampler.__init__(self, dataset)
-
         # Dataset used by the sampler (no copy is made in memory)
         self.dataset = dataset
 

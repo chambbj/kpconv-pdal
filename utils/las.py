@@ -4,7 +4,7 @@ import pdal
 
 def read_las_points(filename):
     p = pdal.Pipeline(json.dumps([filename]))
-    p.validate()
+    # p.validate()
     p.execute()
     data = p.arrays[0]
     points = np.vstack((data['X'], data['Y'], data['Z'])).T
@@ -12,7 +12,7 @@ def read_las_points(filename):
 
 def read_processed_las(filename):
     p = pdal.Pipeline(json.dumps([filename]))
-    p.validate()
+    # p.validate()
     p.execute()
     data = p.arrays[0]
     points = np.vstack((data['X'], data['Y'], data['Z'])).T
@@ -63,7 +63,7 @@ def read_raw_las(filename):
         #     "knn":10
         # }
     ]))
-    p.validate()
+    # p.validate()
     p.execute()
     data = p.arrays[0]
     points = np.vstack((data['X'], data['Y'], data['Z'])).T
@@ -118,7 +118,7 @@ def read_subsampled_las(filename, dl):
         #     "knn":10
         # }
     ]))
-    p.validate()
+    # p.validate()
     p.execute()
     data = p.arrays[0]
     points = np.vstack((data['X'], data['Y'], data['Z'])).T
@@ -148,6 +148,6 @@ def write_las(filename, array):
         "minor_version":4,
         "extra_dims":"all"
         }]), [array])
-    p.validate()
+    # p.validate()
     p.execute()
     return True

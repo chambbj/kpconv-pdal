@@ -3,6 +3,10 @@
 #include "neighbors/neighbors.h"
 #include <string>
 
+#ifndef NPY_IN_ARRAY
+#define NPY_IN_ARRAY NPY_ARRAY_IN_ARRAY
+#endif
+
 
 
 // docstrings for our module
@@ -80,10 +84,10 @@ static PyObject* batch_neighbors(PyObject* self, PyObject* args, PyObject* keywd
 
 
 	// Interpret the input objects as numpy arrays.
-	PyObject* queries_array = PyArray_FROM_OTF(queries_obj, NPY_FLOAT, NPY_IN_ARRAY);
-	PyObject* supports_array = PyArray_FROM_OTF(supports_obj, NPY_FLOAT, NPY_IN_ARRAY);
-	PyObject* q_batches_array = PyArray_FROM_OTF(q_batches_obj, NPY_INT, NPY_IN_ARRAY);
-	PyObject* s_batches_array = PyArray_FROM_OTF(s_batches_obj, NPY_INT, NPY_IN_ARRAY);
+	PyArrayObject* queries_array = (PyArrayObject*)PyArray_FROM_OTF(queries_obj, NPY_FLOAT, NPY_IN_ARRAY);
+	PyArrayObject* supports_array = (PyArrayObject*)PyArray_FROM_OTF(supports_obj, NPY_FLOAT, NPY_IN_ARRAY);
+	PyArrayObject* q_batches_array = (PyArrayObject*)PyArray_FROM_OTF(q_batches_obj, NPY_INT, NPY_IN_ARRAY);
+	PyArrayObject* s_batches_array = (PyArrayObject*)PyArray_FROM_OTF(s_batches_obj, NPY_INT, NPY_IN_ARRAY);
 
 	// Verify data was load correctly.
 	if (queries_array == NULL)
@@ -216,7 +220,7 @@ static PyObject* batch_neighbors(PyObject* self, PyObject* args, PyObject* keywd
 	neighbors_dims[1] = max_neighbors;
 
 	// Create output array
-	PyObject* res_obj = PyArray_SimpleNew(2, neighbors_dims, NPY_INT);
+	PyArrayObject* res_obj = (PyArrayObject*)PyArray_SimpleNew(2, neighbors_dims, NPY_INT);
 	PyObject* ret = NULL;
 
 	// Fill output array with values

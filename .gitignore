@@ -1,8 +1,10 @@
 __pycache__
 *.o
 *.so
+*.pyd
 .vscode
 results/
 runs/
 test/
 kernels/dispositions/
+cpp_wrappers/**/build/

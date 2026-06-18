@@ -1,0 +1,24 @@
+[workspace]
+channels = ["conda-forge"]
+name = "kpconv-pdal"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+build-cpp-subsampling = { cmd = "python setup.py build_ext --inplace", cwd = "cpp_wrappers/cpp_subsampling" }
+build-cpp-neighbors = { cmd = "python setup.py build_ext --inplace", cwd = "cpp_wrappers/cpp_neighbors" }
+build-cpp-wrappers = { depends-on = ["build-cpp-subsampling", "build-cpp-neighbors"] }
+
+[dependencies]
+cudatoolkit = ">=11.8.0,<12"
+torchvision = ">=0.26.0,<0.27"
+pytorch = ">=2.10.0,<3"
+pyyaml = ">=6.0.3,<7"
+numpy = ">=2.4.6,<3"
+mayavi = ">=4.8.3,<5"
+scikit-learn = ">=1.9.0,<2"
+pyqt = ">=5.15.11,<6"
+cudnn = ">=9.10.1.4,<10"
+matplotlib = ">=3.10.9,<4"
+python-pdal = ">=3.5.3,<4"
+tensorboard = ">=2.20.0,<3"

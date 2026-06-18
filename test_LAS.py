@@ -94,7 +94,7 @@ if __name__ == '__main__':
     #       > 'last_XXX': Automatically retrieve the last trained model on dataset XXX
     #       > '(old_)results/Log_YYYY-MM-DD_HH-MM-SS': Directly provide the path of a trained model
 
-    chosen_log = 'results/Log_2021-05-21_15-15-09'  # => ModelNet40
+    chosen_log = r'C:\Users\BradChambers\Documents\Internship2026\Log_2021-04-09_16-01-23\Log_2021-04-09_16-01-23'  # => ModelNet40
 
     # Choose the index of the checkpoint to load OR None if you want to load the best checkpoint
     chkp_idx = None
@@ -125,7 +125,7 @@ if __name__ == '__main__':
 
     # Find which snapshot to restore
     if chkp_idx is None:
-        chosen_chkp = 'best_miou_chkp.tar'
+        chosen_chkp = 'best_acc_chkp.tar'
     else:
         chosen_chkp = np.sort(chkps)[chkp_idx]
     chosen_chkp = os.path.join(chosen_log, 'checkpoints', chosen_chkp)
