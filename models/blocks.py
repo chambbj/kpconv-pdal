@@ -23,6 +23,8 @@ from torch.nn.parameter import Parameter
 from torch.nn.init import kaiming_uniform_
 from kernels.kernel_points import load_kernels
 
+from utils.ply import write_ply
+
 # ----------------------------------------------------------------------------------------------------------------------
 #
 #           Simple functions
